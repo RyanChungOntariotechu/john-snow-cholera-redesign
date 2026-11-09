@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>John Snow's Cholera</title>
-  <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>John Snow's Cholera</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script defer src="app.js"></script>
 </head>
 <body>
     <div class="main">
         <!-- Navbar: The button list at the top of the page -->
-        <div class="navbar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Background</a></li>
-                <li><a href="/">Pros & Cons</a></li>
-                <li><a href="/">Improvements</a></li>
-                <li><a href="/">Contacts</a></li>
-        </div>
-        <!--Content: Holds a title, short description and buttons -->
-            <div class="content">
-                <h1>John Snow.<br><span> 1854 Broad Street Cholera Outbreak.</span></h1>
-                <p class="par">How John Snow stopped the Cholera Outbreak in Soho</p>
-                <button class="cn"> <a href="/"> Read John Snow's Story</a></button>
-                <button class="cn"> <a href="#">Explore the Map </a></button>
+        <section>
+        <div class = "home-page">
+            <div class="navbar">
+                <ul> 
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#background">Background</a></li>
+                    <li><a href="#redesign">Redesign</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                </ul>
             </div>
+            <!--Content: Holds a title, short description and buttons -->
+                
+                    <div class="content">
+                        <h1>John Snow.<br><span> 1854 Broad Street Cholera Outbreak.</span></h1>
+                        <p class="par">How John Snow stopped the Cholera Outbreak in Soho</p>
+                        <button class="cn"> <a href="#background"> Read John Snow's Story</a></button>
+                        <button class="cn"> <a href="#">Explore the Map </a></button>
+                    </div>
+        <hr>        
+        </section>
+        </div>
+        <div class="main-content">
+            <div class="original-work">
+                <section class="hidden" id="background">
+                    <h2> Background</h2>
+                    <p>The Cholera incident struck Britain in the 19th century (1854) resulting in tens of thousands casualities. 
+                        At the time scientists thought the disease was spread through the air. 
+                        John Snow was a doctor living in London and believed in a different theory. 
+                        He hypothesized that the infected water was the problem.  
+                    </p>
+                    <p>
+                        By plotting the Cholera cases on a map it led him to believe his theory was correct. 
+                        The water pump at Broadwick Street was contaminated and Snow persuaded the local authorites to remove it. 
+                        With that action the Cholera outbreak diminished.
+                    </p>
+                    <img src="static/Images/snowmap-original.png" alt="description">
+                </section>
+               <section class="hidden" id="critical-analysis">
+                    <h2>Critical Analysis</h2>
+
+                    <div class="lists">
+                        <div class="list-col">
+                            <h3>Interesting Aspects</h3>
+                            <ul>
+                                <li>Each death is stacked on the houses</li>
+                                <li>Map is the chart</li>
+                                <li>Pumps have separate labels from deaths</li>
+                                <li>Data and context is minimal</li>
+                            </ul>
+                        </div>
+
+                        <div class="list-col">
+                            <h3>Flaws</h3>
+                            <ul>
+                                <li>No time period of deaths</li>
+                                <li>Stacked bars hard to count</li>
+                                <li>Eyeballing data, no concrete evidence (no counts or distances)</li>
+                                <li>No context or scale</li>
+                            </ul>
+                        </div>
+                    </div>
+            </section>
+            </div>
+            <section class="hidden" id="redesign">
+                <h2> Redesign </h2>
+            </section>
+            <section class="hidden" id="contact">
+                <h2> Contact </h2>
+            </section>
         </div>
     </div>
     <footer></footer>

@@ -1,19 +1,45 @@
+/* Base */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 
-.main {
+
+/*Sections such as Background, Critical Analysis,  Redesign*/
+.section {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  row-gap: 20px;           
+  min-height: 75vh;
+  max-width: 100%;
+  width: fit-content;
+}
+
+hr {
+  margin-top: 10px;
+  border: 5px solid rgb(66, 66, 66);
+}
+
+
+/* Home page (top section with photo) */
+.home-page {
   width: 100%;
   min-height: 100vh;
-  background-image: 
-    linear-gradient(to top, rgba(104, 103, 103, 0.5) 14%, rgba(83, 83, 83, 0.5) 14%),
+  background-image:
+    linear-gradient(to top, rgba(104, 103, 103, 0.5) 12%, rgba(83, 83, 83, 0.5) 12%),
     url(Images/John-Snow.webp);
   background-position: center 15%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;   /* photo stretches to fill whatever size the hero is */
 }
 
+
+/* Navigation bar */
 .navbar {
   width: 100%;
   height: 75px;
@@ -30,11 +56,12 @@
 
 .navbar ul li {
   list-style: none;
-  margin: 90px;
+  margin: 0 40px;
   font-size: 21px;
+  white-space: nowrap;  
 }
 
-.navbar ul li a{
+.navbar ul li a {
   text-decoration: none;
   color: white;
   font-family: 'Oswald', sans-serif;
@@ -42,53 +69,60 @@
   transition: 0.2s ease-in-out;
 }
 
-.navbar ul li a:hover{
+.navbar ul li a:hover {
   color: #8ecae6;
 }
 
-.content{
-  width: 1200px;
-  height: auto;
+
+/* Home page content (title, description, buttons) */
+.content {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-top: 10px;
   padding-left: 100px;
-  padding-top: 200px;
   color: white;
   position: relative;
 }
 
-.content .par{
-  padding-left: 20px;
-  padding-bottom: 25px;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 1.2px;
-  line-height: 30px;
 
-}
-
-.content h1{
+.content h1 {
   font-family: 'Oswald', sans-serif;
-  font-size: 50px;
   font-size: 50px;
   padding-left: 10px;
   margin-top: 30%;
   letter-spacing: 2px;
 }
 
-.content .cn{
+.content span {
+  color: #8ecae6;
+  font-size: 50px;
+}
+
+.content .par {
+  padding-left: 20px;
+  padding-bottom: 25px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1.2px;
+  line-height: 30px;
+}
+
+/* Buttons */
+.content .cn {
   width: 190px;
   height: 40px;
   background: black;
-  border: none; 
+  border: none;
   margin-left: 20px;
   font-size: 14px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s ease;
-
 }
 
-.content .cn a{
+.content .cn a {
   text-decoration: none;
-  color:#8ecae6;
+  color: #8ecae6;
   transition: 0.3s ease-in-out;
 }
 
@@ -96,11 +130,108 @@
   background-color: #8ecae6;
 }
 
-.cn a:hover{
+.cn a:hover {
   color: white;
 }
 
-.content span{
-  color:#8ecae6;
-  font-size: 50px;
+
+/*  main content (black area below the home) */
+.main-content {
+  background-color: black;
+  display: flow-root;   /* keeps child margins inside the black box */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content h2 {
+  color: white;
+}
+
+.main-content h3 {
+  color: #8ecae6;
+  margin: 20px 0 10px;
+}
+
+.main-content p {
+  max-width: 700px;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.main-content img {
+  width: 100%;
+  max-width: 700px; 
+  height: auto;
+}
+
+.main-content ul {
+  padding-left: 25px;  
+  color: white;
+}
+
+.main-content li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+
+/* Layout Groups */
+
+/* Background + Critical Analysis side by side */
+.original-work {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;              
+  width: fit-content;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.original-work section {
+  flex: 1;                
+  min-height: auto;       
+}
+
+/* Two lists inside Critical Analysis */
+.lists {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;   
+  gap: 40px;
+}
+
+.list-col {
+  flex: 1;                   
+}
+
+
+/* scroll animation */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1.5s;
+  border: 2px solid #8ecae6;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px 40px;   
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
 }
