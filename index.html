@@ -7,29 +7,30 @@
     <script defer src="app.js"></script>
 </head>
 <body>
+    <nav class="sidebar">
+        <ul>
+            <li>
+                <a href="#home">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M6,19H9V13h6v6h3V10L12,5.5L6,10v9ZM4,21V9l8-6l8,6V21H13V15H11v6H4Zm8-8.75Z"/></svg>
+                 <span>Home</span>
+                </a>
+            </li>
+            <li><a href="#background"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M15,21L9,18.9L4.35,20.7q-0.5,0.2-0.93-0.11T3,19.75v-14Q3,5.43 3.19,5.18T3.7,4.8L9,3l6,2.1l4.65-1.8q0.5-0.2 0.93,0.11T21,4.25v14q0,0.32-0.19,0.57T20.3,19.2L15,21Zm-1-2.45V6.85l-4-1.4v11.7l4,1.4Zm2,0l3-1V5.7L16,6.85v11.7ZM5,18.3l3-1.15V5.45l-3,1V18.3ZM16,6.85v11.7V6.85ZM8,5.45v11.7V5.45Z"/></svg><span>Background</span></a></li>
+            <li><a href="#redesign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M7.4,16l3.05-3.05l2,2L16,11.43V13h2V8H13v2h1.58l-2.13,2.13l-2-2L6,14.6L7.4,16ZM5,21q-0.83,0-1.41-0.59T3,19V5Q3,4.17 3.59,3.59T5,3H19q0.83,0 1.41,0.59T21,5V19q0,0.82-0.59,1.41T19,21H5Zm0-2H19V5H5V19ZM5,5V19V5Z"/></svg> <span>Redesign</span></a></li>
+            <li><a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M4,23V21H20v2H4ZM4,3V1H20V3H4Zm8,10q1.25,0 2.13-0.88T15,10T14.13,7.88T12,7T9.88,7.88T9,10t0.88,2.13T12,13ZM4,20q-0.82,0-1.41-0.59T2,18V6Q2,5.18 2.59,4.59T4,4H20q0.83,0 1.41,0.59Q22,5.18 22,6V18q0,0.82-0.59,1.41T20,20H4Zm1.75-2q1.13-1.4 2.72-2.2Q10.08,15 12,15t3.53,0.8T18.25,18H20V6H4V18H5.75ZM8.7,18h6.6q-0.72-0.5-1.56-0.75T12,17t-1.74,0.25T8.7,18Zm2.59-7.29Q11,10.43 11,10q0-0.43 0.29-0.71T12,9t0.71,0.29T13,10t-0.29,0.71T12,11t-0.71-0.29ZM12,12Z"/></svg> <span>Contacts</span></a></li>
+        </ul>
+    </nav>
     <div class="main">
-        <!-- Navbar: The button list at the top of the page -->
-        <section>
-        <div class = "home-page">
-            <div class="navbar">
-                <ul> 
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#background">Background</a></li>
-                    <li><a href="#redesign">Redesign</a></li>
-                    <li><a href="#contacts">Contacts</a></li>
-                </ul>
-            </div>
+        <div class="home-page" id="home">
             <!--Content: Holds a title, short description and buttons -->
-                
                     <div class="content">
                         <h1>John Snow.<br><span> 1854 Broad Street Cholera Outbreak.</span></h1>
                         <p class="par">How John Snow stopped the Cholera Outbreak in Soho</p>
                         <button class="cn"> <a href="#background"> Read John Snow's Story</a></button>
                         <button class="cn"> <a href="#">Explore the Map </a></button>
                     </div>
-        <hr>        
-        </section>
         </div>
+    </div>
         <div class="main-content">
             <div class="original-work">
                 <section class="hidden" id="background">
@@ -39,16 +40,17 @@
                         John Snow was a doctor living in London and believed in a different theory. 
                         He hypothesized that the infected water was the problem.  
                     </p>
+                    <br>
                     <p>
                         By plotting the Cholera cases on a map it led him to believe his theory was correct. 
                         The water pump at Broadwick Street was contaminated and Snow persuaded the local authorites to remove it. 
                         With that action the Cholera outbreak diminished.
                     </p>
+                    <br>
                     <img src="static/Images/snowmap-original.png" alt="description">
                 </section>
                <section class="hidden" id="critical-analysis">
                     <h2>Critical Analysis</h2>
-
                     <div class="lists">
                         <div class="list-col">
                             <h3>Interesting Aspects</h3>
@@ -59,7 +61,6 @@
                                 <li>Data and context is minimal</li>
                             </ul>
                         </div>
-
                         <div class="list-col">
                             <h3>Flaws</h3>
                             <ul>
@@ -72,11 +73,38 @@
                     </div>
             </section>
             </div>
+            <hr class="divider">
             <section class="hidden" id="redesign">
                 <h2> Redesign </h2>
             </section>
-            <section class="hidden" id="contact">
-                <h2> Contact </h2>
+            <section class="hidden contact" id="contact">
+                <div class="bg-slides">
+                    <img src="static/Images/new-jersey.jpg" alt="">
+                    <img src="static/Images/Switzerland.jpg" alt="">
+                    <img src="static/Images/Venice.jpg" alt="">
+                </div>
+                <h2>Contact</h2>
+                <p>Questions about the project? Send me a message.</p>
+                <div class="contact-box">
+                    <ul class="contact-links">
+                        <li><a href="mailto:ryan.chung2@ontariotechu.net">Email</a></li>
+                        <li><a href="https://github.com/RyanChungOntariotechu" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/ryan-chung-a26852261/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    </ul>
+                <form class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+    </div>
+</section>
             </section>
         </div>
     </div>

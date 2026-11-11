@@ -1,23 +1,23 @@
-/* Base */
+@import url('https://fonts.googleapis.com/css2?family=Redaction:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ==========================================================
+   BASE
+   ========================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
+  font-family: "Redaction", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-
-/*Sections such as Background, Critical Analysis,  Redesign*/
-.section {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  row-gap: 20px;           
-  min-height: 75vh;
-  max-width: 100%;
-  width: fit-content;
+body {
+  padding-left: 18%;   
 }
 
 hr {
@@ -26,7 +26,82 @@ hr {
 }
 
 
-/* Home page (top section with photo) */
+/* ==========================================================
+   SCROLL ANIMATION (used by every .hidden section below)
+   ========================================================== */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1.5s;
+  border-bottom: 2px solid #8ecae6;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px 40px;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 250px;
+  padding: 20px 10px;
+  background-color: black;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  color: #e3e3e3;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
+}
+
+.sidebar a:hover {
+  background: #1a1a1a;
+  color: #8ecae6;
+}
+
+.sidebar svg {
+  fill: currentColor;   /* icon follows the text color, including on hover */
+}
+
+@media (max-width: 800px) {
+  body { padding-left: 60px; }
+  .sidebar { width: 60px; }
+  .sidebar span { display: none; }   /* icons only on small screens */
+}
+
+
+/* ==========================================================
+   HOME PAGE (hero with photo)
+   ========================================================== */
 .home-page {
   width: 100%;
   min-height: 100vh;
@@ -38,56 +113,17 @@ hr {
   background-size: cover;   /* photo stretches to fill whatever size the hero is */
 }
 
-
-/* Navigation bar */
-.navbar {
-  width: 100%;
-  height: 75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar ul li {
-  list-style: none;
-  margin: 0 40px;
-  font-size: 21px;
-  white-space: nowrap;  
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: white;
-  font-family: 'Oswald', sans-serif;
-  font-weight: bold;
-  transition: 0.2s ease-in-out;
-}
-
-.navbar ul li a:hover {
-  color: #8ecae6;
-}
-
-
-/* Home page content (title, description, buttons) */
+/* Title, description, buttons */
 .content {
   width: 100%;
   max-width: 100%;
-  box-sizing: border-box;
   padding-top: 10px;
   padding-left: 100px;
   color: white;
   position: relative;
 }
 
-
 .content h1 {
-  font-family: 'Oswald', sans-serif;
   font-size: 50px;
   padding-left: 10px;
   margin-top: 30%;
@@ -102,7 +138,6 @@ hr {
 .content .par {
   padding-left: 20px;
   padding-bottom: 25px;
-  font-family: 'Oswald', sans-serif;
   letter-spacing: 1.2px;
   line-height: 30px;
 }
@@ -118,9 +153,15 @@ hr {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s ease;
+  border-bottom: 2px solid #8ecae6;
 }
 
 .content .cn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: #8ecae6;
   transition: 0.3s ease-in-out;
@@ -128,14 +169,17 @@ hr {
 
 .cn:hover {
   background-color: #8ecae6;
+  border-bottom: 2px solid #f4f7f8;
 }
 
-.cn a:hover {
+.cn:hover a {
   color: white;
 }
 
 
-/*  main content (black area below the home) */
+/* ==========================================================
+   MAIN CONTENT (black area below the home page)
+   ========================================================== */
 .main-content {
   background-color: black;
   display: flow-root;   /* keeps child margins inside the black box */
@@ -145,6 +189,9 @@ hr {
 
 .main-content h2 {
   color: white;
+  font-size: 32px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 }
 
 .main-content h3 {
@@ -155,17 +202,20 @@ hr {
 .main-content p {
   max-width: 700px;
   color: white;
-  margin-bottom: 2px;
+  line-height: 1.7;
+  text-align: left;
+  margin-bottom: 0;   /* the section's row-gap already spaces paragraphs */
 }
 
 .main-content img {
   width: 100%;
-  max-width: 700px; 
+  max-width: 700px;
   height: auto;
+  border-radius: 5px;
 }
 
 .main-content ul {
-  padding-left: 25px;  
+  padding-left: 25px;
   color: white;
 }
 
@@ -174,64 +224,191 @@ hr {
   line-height: 1.5;
 }
 
+/* Generic section layout */
+.section {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  row-gap: 20px;
+  min-height: 75vh;
+  max-width: 100%;
+  width: fit-content;
+}
 
-/* Layout Groups */
 
-/* Background + Critical Analysis side by side */
+/* ==========================================================
+   BACKGROUND + CRITICAL ANALYSIS (side by side)
+   ========================================================== */
 .original-work {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  gap: 40px;              
+  gap: 40px;
   width: fit-content;
   max-width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
+  margin: 40px auto 0;
   border-radius: 10px;
 }
 
 .original-work section {
-  flex: 1;                
-  min-height: auto;       
+  flex: 1;
+  min-height: auto;
 }
 
 /* Two lists inside Critical Analysis */
 .lists {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;   
+  align-items: flex-start;
   gap: 40px;
 }
 
 .list-col {
-  flex: 1;                   
+  flex: 1;
 }
 
 
-/* scroll animation */
-.hidden {
+/* ==========================================================
+   DIVIDER
+   ========================================================== */
+.divider {
+  width: 95%;
+  margin: 40px auto;
+  border: none;
+  border-radius: 5px;
+  border-top: 2px solid #eff2f3;
+}
+
+
+/* ==========================================================
+   REDESIGN
+   ========================================================== */
+.redesign {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 95%;
+  width: 80vw;
+}
+
+
+/* ==========================================================
+   CONTACT
+   ========================================================== */
+.contact {
+  position: relative;
+  overflow: hidden;
+  min-height: 40vh;
+  justify-content: center;
+  max-width: 95%;
+  width: fit-content;
+  margin: 40px auto 0;
+}
+
+/* Background slideshow */
+.bg-slides {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;   /* overrides .main-content img { max-width: 700px } */
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
-  filter: blur(5px);
-  transform: translateX(-100%);
-  transition: all 1.5s;
-  border: 2px solid #8ecae6;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 20px 40px;   
+  animation: bg-fade 15s infinite;
 }
 
-.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateX(0);
+.bg-slides img:nth-child(2) { animation-delay: 5s; }
+.bg-slides img:nth-child(3) { animation-delay: 10s; }
+
+/* Dark overlay so the text stays readable */
+.bg-slides::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 
+/* Keep the content above the slideshow */
+.contact > :not(.bg-slides) {
+  position: relative;
+  z-index: 1;
+}
 
-/* Accessibility */
+@keyframes bg-fade {
+  0%   { opacity: 0; }
+  7%   { opacity: 1; }
+  33%  { opacity: 1; }
+  40%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion) {
-  .hidden {
-    transition: none;
-  }
+  .bg-slides img { animation: none; }
+  .bg-slides img:first-child { opacity: 1; }
+}
+
+/* Links + form */
+.contact-box {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-links a {
+  color: #8ecae6;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.contact-links a:hover {
+  color: white;
+}
+
+.contact-form {
+  display: grid;
+  gap: 8px;
+  width: 350px;
+  max-width: 100%;
+}
+
+.contact-form label {
+  color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 8px;
+  border: 1px solid #8ecae6;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font: inherit;
+}
+
+.contact-form button {
+  height: 40px;
+  background: black;
+  color: #8ecae6;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.contact-form button:hover {
+  background: #8ecae6;
+  color: white;
 }
