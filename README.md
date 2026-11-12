@@ -1,7 +1,7 @@
 # john-snow-cholera-redesign
 A redesign of the John Snows map for the Cholera Outbreak
 
-Static Contains all data
+Static contains all data
 - deaths.csv
 - snow_dates.csv
 - pumps.csv
