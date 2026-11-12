@@ -6,4 +6,5 @@ Static contains all data
 - snow_dates.csv
 - pumps.csv
 - all 3 iterations
+- images
 
