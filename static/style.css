@@ -1,14 +1,15 @@
+
+/*importing the Redaction font from google api*/
 @import url('https://fonts.googleapis.com/css2?family=Redaction:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* ==========================================================
-   BASE
-   ========================================================== */
+/* Sets base for website*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Sets the font and scroll behaviour for the html */
 html {
   scroll-behavior: smooth;
   font-family: "Redaction", serif;
@@ -16,19 +17,12 @@ html {
   font-style: normal;
 }
 
+/* Shifts the body more to right ensuring that the body isn't under the sidebar */
 body {
   padding-left: 18%;   
 }
 
-hr {
-  margin-top: 10px;
-  border: 5px solid rgb(66, 66, 66);
-}
-
-
-/* ==========================================================
-   SCROLL ANIMATION (used by every .hidden section below)
-   ========================================================== */
+/* Scroll Animation (used by every .hidden section below) */
 .hidden {
   opacity: 0;
   filter: blur(5px);
@@ -52,18 +46,16 @@ hr {
   }
 }
 
-
-/* ==========================================================
-   SIDEBAR
-   ========================================================== */
+/*----------------------------------------------------------------------- */
+/* Sidebar Styling */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   height: 100vh;
-  width: 250px;
-  padding: 20px 10px;
+  width: 18%;
+  padding: 5% 10px;
   background-color: black;
 }
 
@@ -75,21 +67,23 @@ hr {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 10px;
-  color: #e3e3e3;
+  padding: 25px 20px;
+  color: white;
   text-decoration: none;
   font-size: 20px;
   border-radius: 8px;
   transition: 0.2s ease-in-out;
+  margin-top:10%;
+
 }
 
 .sidebar a:hover {
-  background: #1a1a1a;
+  background: #fcfcfc;
   color: #8ecae6;
 }
 
 .sidebar svg {
-  fill: currentColor;   /* icon follows the text color, including on hover */
+  fill: currentColor;   
 }
 
 @media (max-width: 800px) {
@@ -98,10 +92,8 @@ hr {
   .sidebar span { display: none; }   /* icons only on small screens */
 }
 
-
-/* ==========================================================
-   HOME PAGE (hero with photo)
-   ========================================================== */
+/*----------------------------------------------------------------------- */
+/* Home Page with the photo*/
 .home-page {
   width: 100%;
   min-height: 100vh;
@@ -126,7 +118,7 @@ hr {
 .content h1 {
   font-size: 50px;
   padding-left: 10px;
-  margin-top: 30%;
+  margin-top: 37%;
   letter-spacing: 2px;
 }
 
@@ -149,7 +141,6 @@ hr {
   background: black;
   border: none;
   margin-left: 20px;
-  font-size: 14px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.4s ease;
@@ -176,13 +167,11 @@ hr {
   color: white;
 }
 
-
-/* ==========================================================
-   MAIN CONTENT (black area below the home page)
-   ========================================================== */
+/*----------------------------------------------------------------------- */
+/* Main Content (Background, Graph Analysis, Redesign and Contacts */
 .main-content {
   background-color: black;
-  display: flow-root;   /* keeps child margins inside the black box */
+  display: flow-root; 
   margin-left: auto;
   margin-right: auto;
 }
@@ -204,7 +193,7 @@ hr {
   color: white;
   line-height: 1.7;
   text-align: left;
-  margin-bottom: 0;   /* the section's row-gap already spaces paragraphs */
+  margin-bottom: 0;  
 }
 
 .main-content img {
@@ -224,7 +213,6 @@ hr {
   line-height: 1.5;
 }
 
-/* Generic section layout */
 .section {
   display: grid;
   place-items: center;
@@ -235,10 +223,8 @@ hr {
   width: fit-content;
 }
 
-
-/* ==========================================================
-   BACKGROUND + CRITICAL ANALYSIS (side by side)
-   ========================================================== */
+/*----------------------------------------------------------------------- */
+/*Background and Graph Analysis (Configured to be side by side)*/
 .original-work {
   display: flex;
   flex-direction: row;
@@ -269,9 +255,7 @@ hr {
 }
 
 
-/* ==========================================================
-   DIVIDER
-   ========================================================== */
+/* Divider for main-content */
 .divider {
   width: 95%;
   margin: 40px auto;
@@ -280,10 +264,8 @@ hr {
   border-top: 2px solid #eff2f3;
 }
 
-
-/* ==========================================================
-   REDESIGN
-   ========================================================== */
+/*----------------------------------------------------------------------- */
+/* Redesign Section */
 .redesign {
   justify-content: center;
   margin-left: auto;
@@ -292,10 +274,42 @@ hr {
   width: 80vw;
 }
 
+.chart-row {
+  display: flex;
+  flex-wrap: wrap;           
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
 
-/* ==========================================================
-   CONTACT
-   ========================================================== */
+.chart-row .chart {
+  flex: 1 1 500px;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+.chart-timeline { height: 800px; }
+.chart-map      { height: 800px; }
+
+.chart-info {
+  flex: 0 1 280px;
+  color: white;
+}
+
+.chart-info p { line-height: 1.7; margin-bottom: 20px; }
+
+.chart-info .stat {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.chart-info .num   { font-size: 44px; color: #8ecae6; line-height: 1; }
+.chart-info .label { font-size: 16px; margin-top: 6px; }
+
+.conclusion { max-width: 800px; }
+
+/*----------------------------------------------------------------------- */
+/* Contact Section */
 .contact {
   position: relative;
   overflow: hidden;
@@ -304,6 +318,7 @@ hr {
   max-width: 95%;
   width: fit-content;
   margin: 40px auto 0;
+  margin-bottom: 60px;
 }
 
 /* Background slideshow */
